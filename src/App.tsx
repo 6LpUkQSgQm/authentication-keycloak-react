@@ -1,11 +1,8 @@
 
-import {Box, Typography} from "@mui/material"
+import SignIn from "./pages/SignIn"
 function App() {
   return (
-    <Box textAlign="center">
-    <Typography>Authentication with Keycloak</Typography>
-
-    </Box>
+    <SignIn />
   );
 }
 
