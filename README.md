@@ -25,3 +25,5 @@ Check if this user exist:
 -   go to this url `http://localhost:8080/auth/realms/authentication_keycloak_react/account/`
 -   Connect you with your new user and new password
 
+Add your app in Keycloak:
+-   Create a new "client" with "id" `authentication_keycloak_react` and "url" `http://localhost:3000`
