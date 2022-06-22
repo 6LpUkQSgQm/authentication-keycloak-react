@@ -17,3 +17,11 @@ Add a user:
 -   username:`test`
 -   email:`test@test.com`
 -   check "email verified"
+
+Add a password for this user:
+-   "password"
+
+Check if this user exist:
+-   go to this url `http://localhost:8080/auth/realms/authentication_keycloak_react/account/`
+-   Connect you with your new user and new password
+
