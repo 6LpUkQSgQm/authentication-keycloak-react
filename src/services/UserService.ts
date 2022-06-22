@@ -19,14 +19,12 @@ const initKeycloak = () => {
 const login = keycloak.login;
 const logout = keycloak.logout;
 const getUsername = () => keycloak.tokenParsed?.preferred_username;
-const hasRole = (roles) => roles.some((role) => keycloak.hasRealmRole(role));
 
 const UserService = {
   initKeycloak,
   login,
   logout,
   getUsername,
-  hasRole,
 };
 
 export default UserService;
