@@ -9,3 +9,11 @@ Install keycloak server with Docker (change username and password):
 ```bash
 docker run -p 8080:8080 -e KEYCLOAK_USER=<username> -e KEYCLOAK_PASSWORD=<password> quay.io/keycloak/keycloak:18.0.0
 ```
+
+Add a Realm: 
+-   `authentication_keycloak_react`
+
+Add a user:
+-   username:`test`
+-   email:`test@test.com`
+-   check "email verified"
