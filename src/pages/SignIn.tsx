@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Box, Typography, Button, Container } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
 import KeycloakLogo from "../KeycloakLogo.png";
@@ -18,7 +17,6 @@ function SignIn() {
             onClick={() => UserService.login()}
             size="large"
             sx={{ mt: 2 }}
-            fullWidth
             variant="contained"
           >
             <LoginIcon sx={{ mr: 1 }} />

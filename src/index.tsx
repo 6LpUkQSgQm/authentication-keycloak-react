@@ -3,12 +3,9 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-// keycloak services
-import UserService from "./services/UserService";
-
 const renderApp = ReactDOM.createRoot(document.getElementById("root")!);
 renderApp.render(<App />);
-UserService.initKeycloak()
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

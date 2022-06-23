@@ -1,6 +1,36 @@
-import { Container } from "@mui/material";
-
+import { Container, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import NavBar from "../components/NavBar";
+import UserService from "../services/UserService";
 function Dashboard() {
-  return <Container>dashboard OK</Container>;
+  const [tokenUser, setTokenUser] = useState("");
+  const [infosUser, setInfosUser] = useState({ name: "", email: "" });
+  const getIdTokenParsedFunction = async () => {
+    const infosUserKeycloak = await UserService.getIdTokenParsed();
+    const tokenUserKeycloak = await UserService.getToken();
+    console.log(tokenUserKeycloak, "tokenUserKeycloak");
+    setTokenUser(String(tokenUserKeycloak));
+    setInfosUser(Object(infosUserKeycloak));
+  };
+  useEffect(() => {
+    getIdTokenParsedFunction();
+  }, []);
+  return (
+    <>
+      {infosUser ? (
+        <>
+          <NavBar />
+          <Container sx={{ mt: 10 }}>
+            <Typography variant="h4">My confidential dashboard</Typography>
+            <Typography variant="h5">Name: {infosUser.name}</Typography>
+            <Typography variant="h5">Email: {infosUser.email}</Typography>
+            <Typography variant="h5">Token: <Typography>{tokenUser}</Typography></Typography>
+          </Container>
+        </>
+      ) : (
+        <Typography>... loading</Typography>
+      )}
+    </>
+  );
 }
 export default Dashboard;
