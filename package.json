@@ -1,5 +1,6 @@
 {
   "name": "authentication-keycloak-react",
+  "author": "Julien Chapron",
   "version": "0.1.0",
   "private": true,
   "engines": {
