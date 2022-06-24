@@ -2,6 +2,12 @@
 
 Simple authetication "username password" form with keycloak
 
+### Tech stack
+
+![image](https://img.shields.io/badge/react.js-FFFFFF?style=for-the-badge&logo=react&logoColor=blue)
+![image](https://img.shields.io/badge/mui-FFFFFF?style=for-the-badge&logo=mui&logoColor=blue)
+![image](https://img.shields.io/badge/keycloak-FFFFFF?style=for-the-badge&logo=keycloak&logoColor=grey)
+
 ## First step
 
 Install keycloak server with Docker (change username and password):
