@@ -27,3 +27,22 @@ Check if this user exist:
 
 Add your app in Keycloak:
 -   Create a new "client" with "id" `authentication_keycloak_react` and "url" `http://localhost:3000`
+
+
+## Download and start your app
+
+Download the app:
+
+```bash
+git clone https://github.com/JulienChapron/authentication-keycloak-react.git
+```
+
+Start the app:
+
+```bash
+cd authentication-keycloak-react
+```
+
+```bash
+yarn install && docker build -t authentication-keycloak-react .
+```
