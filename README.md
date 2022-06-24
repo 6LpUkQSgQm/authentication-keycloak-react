@@ -1,6 +1,7 @@
 # Authentication with React.js and Keycloak
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/87e358f7da97100ef6ab/maintainability)](https://codeclimate.com/github/JulienChapron/authentication-keycloak-react/maintainability)
+![Known Vulnerabilities](https://snyk.io/test/github/JulienChapron/authentication-keycloak-react/badge.svg)
 
 Simple authetication "username password" form with keycloak
 
