@@ -44,13 +44,13 @@ Add your app in Keycloak:
 
 ## Download and start your app
 
-Download the app:
+Download:
 
 ```bash
 git clone https://github.com/JulienChapron/authentication-keycloak-react.git
 ```
 
-Start the app:
+Start:
 
 ```bash
 cd authentication-keycloak-react
