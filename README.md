@@ -20,7 +20,7 @@ Simple authetication "username password" form with keycloak
 Install keycloak server with Docker (change username and password):
 
 ```bash
-docker run -p 8080:8080 -e KEYCLOAK_USER=<username> -e KEYCLOAK_PASSWORD=<password> quay.io/keycloak/keycloak:18.0.0
+docker run -p 8080:8080 -e KEYCLOAK_USER=<username> -e KEYCLOAK_PASSWORD=<password> quay.io/keycloak/keycloak:15.0.2
 ```
 
 Add a Realm: 
