@@ -4,7 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserService from "./services/UserService";
 function App() {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState<string>("");
   const initKeycloakFunction = async () => {
     await UserService.initKeycloak();
     setUsername(await UserService.getUsername());

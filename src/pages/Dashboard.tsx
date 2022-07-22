@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import UserService from "../services/UserService";
 function Dashboard() {
-  const [tokenUser, setTokenUser] = useState("");
-  const [infosUser, setInfosUser] = useState({ name: "", email: "" });
+  const [tokenUser, setTokenUser] = useState<string>("");
+  const [infosUser, setInfosUser] = useState<{ name: string; email: string }>({
+    name: "",
+    email: "",
+  });
   const getIdTokenParsedFunction = async () => {
     const infosUserKeycloak = await UserService.getIdTokenParsed();
     const tokenUserKeycloak = await UserService.getToken();
-    console.log(tokenUserKeycloak, "tokenUserKeycloak");
     setTokenUser(String(tokenUserKeycloak));
     setInfosUser(Object(infosUserKeycloak));
   };
@@ -24,7 +26,9 @@ function Dashboard() {
             <Typography variant="h4">My confidential dashboard</Typography>
             <Typography variant="h5">Name: {infosUser.name}</Typography>
             <Typography variant="h5">Email: {infosUser.email}</Typography>
-            <Typography variant="h5">Token: <Typography>{tokenUser}</Typography></Typography>
+            <Typography variant="h5">
+              Token: <Typography>{tokenUser}</Typography>
+            </Typography>
           </Container>
         </>
       ) : (
