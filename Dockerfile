@@ -1,4 +1,4 @@
-FROM node:18.3.0-slim
+FROM node:current-bullseye-slim
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install -g npm@latest --silent
