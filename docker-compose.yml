@@ -1,0 +1,58 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres_container
+    restart: always
+    ports:
+      - "6032:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d/:ro
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_container
+    restart: always
+    ports:
+      - "6081:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+  keycloak:
+    image: quay.io/keycloak/keycloak:legacy
+    container_name: keycloak_container
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_SCHEMA: public
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: Pa55w0rd
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+  client:
+    build: ./client
+    container_name: frontend_container
+    command: npm start
+    volumes:
+      - ./client/:/usr/app
+      - /usr/app/node_modules
+    depends_on:
+      - keycloak
+    ports:
+      - "3000:3000"
+
+volumes:
+  postgres_data:
+  pgadmin_data:

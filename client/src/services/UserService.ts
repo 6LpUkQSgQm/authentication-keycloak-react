@@ -4,9 +4,7 @@ const keycloak = new Keycloak('/keycloak.json');
 
 const initKeycloak = async () => {
   await keycloak.init({
-    onLoad: 'check-sso',
-    silentCheckSsoRedirectUri: window.location.origin + '/silent-check-sso.html',
-    pkceMethod: 'S256',
+    onLoad: 'login-required'
   })
     .then((authenticated) => {
       if (!authenticated) {
@@ -21,7 +19,6 @@ const initKeycloak = async () => {
 
 const login = keycloak.login;
 const logout = keycloak.logout;
-console.log(keycloak, 'keycloak')
 const getUsername = () => keycloak.tokenParsed?.preferred_username;
 const getToken = () => keycloak.idToken;
 const getIdTokenParsed = () => keycloak.idTokenParsed;
