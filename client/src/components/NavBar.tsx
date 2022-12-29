@@ -1,5 +1,5 @@
 import { AppBar, Typography, Toolbar, Button } from "@mui/material";
-import UserService from "../services/UserService";
+import UserService from "../services/userService";
 
 function NavBar() {
   return (

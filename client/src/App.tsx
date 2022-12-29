@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SignIn from "./pages/SignIn";
 import Dashboard from "./pages/Dashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import UserService from "./services/UserService";
+import UserService from "./services/userService";
 function App() {
   const [username, setUsername] = useState<string>("");
   const initKeycloakFunction = async () => {

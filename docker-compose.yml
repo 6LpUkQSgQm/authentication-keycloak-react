@@ -6,7 +6,7 @@ services:
     container_name: postgres_container
     restart: always
     ports:
-      - "6032:5432"
+      - "6034:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./sql:/docker-entrypoint-initdb.d/:ro
@@ -14,12 +14,13 @@ services:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
       POSTGRES_PASSWORD: password
+      POSTGRES_HOST_AUTH_METHOD: "trust"
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin_container
     restart: always
     ports:
-      - "6081:80"
+      - "6084:80"
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: root

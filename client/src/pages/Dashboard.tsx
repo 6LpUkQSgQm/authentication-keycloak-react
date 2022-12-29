@@ -1,16 +1,17 @@
 import { Container, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
-import UserService from "../services/UserService";
+import UserService from "../services/userService";
+
 function Dashboard() {
   const [tokenUser, setTokenUser] = useState<string>("");
   const [infosUser, setInfosUser] = useState<{ name: string; email: string }>({
     name: "",
     email: "",
   });
-  const getIdTokenParsedFunction = async () => {
-    const infosUserKeycloak = await UserService.getIdTokenParsed();
-    const tokenUserKeycloak = await UserService.getToken();
+  const getIdTokenParsedFunction = () => {
+    const infosUserKeycloak = UserService.getIdTokenParsed();
+    const tokenUserKeycloak = UserService.getToken();
     setTokenUser(String(tokenUserKeycloak));
     setInfosUser(Object(infosUserKeycloak));
   };

@@ -1,7 +1,7 @@
 import { Box, Typography, Button, Container } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
 import KeycloakLogo from "../KeycloakLogo.png";
-import UserService from "../services/UserService";
+import UserService from "../services/userService";
 
 function SignIn() {
   return (
@@ -14,7 +14,7 @@ function SignIn() {
         <Typography variant="h5">Authentication with Keycloak</Typography>
         <div>
           <Button
-            onClick={() => UserService.login()}
+            onClick={async () => await UserService.login()}
             size="large"
             sx={{ mt: 2 }}
             variant="contained"
