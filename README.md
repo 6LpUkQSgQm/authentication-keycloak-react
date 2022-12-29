@@ -5,58 +5,42 @@
 
 Simple authentication "username password" form with keycloak
 
-![alt text](https://raw.githubusercontent.com/JulienChapron/authentication-keycloak-react/main/readme/auth1.png)
-![alt text](https://raw.githubusercontent.com/JulienChapron/authentication-keycloak-react/main/readme/auth2.png)
-![alt text](https://raw.githubusercontent.com/JulienChapron/authentication-keycloak-react/main/readme/auth3.png)
-
 ### Tech stack
 
 ![image](https://img.shields.io/badge/react.js-FFFFFF?style=for-the-badge&logo=react&logoColor=blue)
 ![image](https://img.shields.io/badge/mui-FFFFFF?style=for-the-badge&logo=mui&logoColor=blue)
 ![image](https://img.shields.io/badge/keycloak-FFFFFF?style=for-the-badge&logo=keycloak&logoColor=grey)
+![image](https://img.shields.io/badge/postgresql-FFFFFF?style=for-the-badge&logo=postgresql&logoColor=blue)
+![image](https://img.shields.io/badge/docker-FFFFFF?style=for-the-badge&logo=docker&logoColor=blue)
 
 ## First step
 
-Install keycloak server with Docker (change username and password):
+Run docker command:
 
 ```bash
-docker run -p 8080:8080 -e KEYCLOAK_USER=<username> -e KEYCLOAK_PASSWORD=<password> quay.io/keycloak/keycloak:15.0.2
+docker-compose up
 ```
+![alt text](https://raw.githubusercontent.com/JulienChapron/authentication-keycloak-react/main/readme/docker-desktop.png)
 
+Connect you to keycloak at `http://localhost:8080` with user:`admin` and password: `Pa55w0rd`
 
-Add a Realm: 
--   `authentication_keycloak_react`
+1. Add Realm: 
+  -  realm ID: `authentication_keycloak_react`
 
-Add a user:
--   username:`test`
--   email:`test@test.com`
--   check "email verified"
+2. Add user and credentials:
+  -   username:`test`
+  -   email:`test@test.com`
+  -   check "email verified"
+  -   add a credential: test
 
-Add a password for this user:
--   "password"
+3. Add client:
+  -   Client ID: `authentication_keycloak_react`
+  -   url: http://localhost:3000
+  -   redirect uri: http://localhost:*
+  -   logout: http://localhost:*
+  
+<hr />
+Connect you to pgadmin  at `http://localhost:6084` with email: `admin@admin.com` and password: `root`
 
-Check if this user exist:
--   go to this url `http://localhost:8080/auth/realms/authentication_keycloak_react/account/`
--   Connect you with your new user and new password
-
-Add your app in Keycloak:
--   Create a new "client" with "id" `authentication_keycloak_react` and "url" `http://localhost:3000`
-
-
-## Download and start your app
-
-Download:
-
-```bash
-git clone https://github.com/JulienChapron/authentication-keycloak-react.git
-```
-
-Start:
-
-```bash
-cd authentication-keycloak-react
-```
-
-```bash
-yarn install && docker build -t authentication-keycloak-react .
-```
+1. Connect your db created with script `0-init-keycloak-database.sh` 
+  -   Register a server named `keycloak` with host: `postgres` , user: `keycloak` and password: `password`
