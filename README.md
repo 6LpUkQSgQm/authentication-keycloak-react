@@ -40,8 +40,8 @@ Connect you to keycloak at `http://localhost:8080` with user:`admin` and passwor
   -   logout: http://localhost:*
   
 <hr />
+
 Connect you to pgAdmin  at `http://localhost:6084` with email:`admin@admin.com` and password:`root`
 
 1. Connect your created db with this script `0-init-keycloak-database.sh` launch with `docker-compose` command
-
   -   Register a server named `keycloak` with host:`postgres` , user:`keycloak` and password:`password`
