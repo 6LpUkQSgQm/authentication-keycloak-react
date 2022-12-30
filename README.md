@@ -15,7 +15,7 @@ Simple authentication "username password" form with keycloak
 
 ## First step
 
-Run docker command:
+Docker command to create all containers:
 
 ```bash
 docker-compose up
@@ -27,11 +27,11 @@ Connect you to keycloak at `http://localhost:8080` with user:`admin` and passwor
 1. Add Realm: 
   -  realm ID: `authentication_keycloak_react`
 
-2. Add user and credentials:
+2. Add user and user credentials:
   -   username:`test`
   -   email:`test@test.com`
   -   check "email verified"
-  -   add a credential: test
+  -   Create a credential for this user: test
 
 3. Add client:
   -   Client ID: `authentication_keycloak_react`
@@ -40,7 +40,8 @@ Connect you to keycloak at `http://localhost:8080` with user:`admin` and passwor
   -   logout: http://localhost:*
   
 <hr />
-Connect you to pgadmin  at `http://localhost:6084` with email: `admin@admin.com` and password: `root`
+Connect you to pgAdmin  at `http://localhost:6084` with email:`admin@admin.com` and password:`root`
 
-1. Connect your db created with script `0-init-keycloak-database.sh` 
-  -   Register a server named `keycloak` with host: `postgres` , user: `keycloak` and password: `password`
+1. Connect your created db with this script `0-init-keycloak-database.sh` launch with `docker-compose` command
+
+  -   Register a server named `keycloak` with host:`postgres` , user:`keycloak` and password:`password`
